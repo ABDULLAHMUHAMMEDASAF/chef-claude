@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & .counter {
+    user-select: none;
+    position: relative;
+    background-color: lightblue;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    margin-top: 10px;
+
+    & button {
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+      background-color: gray;
+      appearance: none;
+      outline: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: whitesmoke;
+      box-shadow: 0 2px 8px tomato;
+
+      &:hover {
+        animation: spin ease-in-out 0.3s;
+      }
+    }
+
+    & .minus {
+      left: 0;
+    }
+
+    & .plus {
+      right: 0;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
