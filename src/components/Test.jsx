@@ -17,20 +17,20 @@ function Test() {
         <div className="counter">
           <button
             onClick={minusCount}
-            style={{ visibility: count === 0 ? "hidden" : "visible" }}
+            style={{ display: count === 0 ? "none" : "inline-block" }}
             className="minus"
             aria-label="Decrease count"
           >
-            <span>-</span>
+            <span className="minus-span"></span>
           </button>
           <h1 className="count">{count}</h1>
           <button
             onClick={plusCount}
-            style={{ visibility: count === 10 ? "hidden" : "visible" }}
+            style={{ display: count === 10 ? "none" : "inline-block" }}
             className="plus"
             aria-label="Increase count"
           >
-            <span>+</span>
+            <span className="plus-span"></span>
           </button>
         </div>
       </div>

@@ -19,6 +19,9 @@
 
     & button {
       position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       bottom: 0;
       cursor: pointer;
       background-color: gray;
@@ -27,17 +30,46 @@
       border: none;
       width: 40px;
       height: 40px;
-      font-size: 40px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       color: whitesmoke;
-      box-shadow: 0 2px 8px tomato;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
 
-      &:hover {
-        animation: spin ease-in-out 0.3s;
+      /* Ortak Çizgi Yapısı */
+      & .minus-span,
+      & .plus-span {
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        background-color: whitesmoke;
+        width: 25px;
+        height: 5px;
+        border-radius: 3px;
+        display: inline-block;
       }
+
+      /* Artı butonuna dikey çizgiyi ekleyelim */
+      & .plus-span::after {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: inherit;
+        width: 25px;
+        height: 5px;
+        border-radius: 3px;
+        inset: 0;
+        margin: auto;
+        transform-origin: center;
+        transform: rotate(90deg);
+      }
+
+      &:hover .minus-span,
+      &:hover .plus-span {
+        transform: rotate(360deg);
+      }
+
+      /* &:hover .plus-span::after {
+        transform: rotate(450deg);
+      } */
     }
 
     & .minus {
@@ -47,11 +79,5 @@
     & .plus {
       right: 0;
     }
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
   }
 }
