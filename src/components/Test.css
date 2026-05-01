@@ -41,7 +41,7 @@
         transition: all 0.3s ease-in-out;
         position: relative;
         background-color: whitesmoke;
-        width: 25px;
+        width: 20px;
         height: 5px;
         border-radius: 3px;
         display: inline-block;
@@ -53,7 +53,7 @@
         display: block;
         position: absolute;
         background-color: inherit;
-        width: 25px;
+        width: 20px;
         height: 5px;
         border-radius: 3px;
         inset: 0;
@@ -78,6 +78,105 @@
 
     & .plus {
       right: 0;
+    }
+  }
+}
+
+.items {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: lightgray;
+
+  input[type="text"] {
+    outline: none;
+    border: none;
+    appearance: none;
+    padding: 5px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+
+    &:focus,
+    &:active {
+      outline: 2px solid tomato;
+      box-shadow: 0 2px 8px tomato;
+    }
+  }
+
+  button {
+    appearance: none;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    border: 1px solid tomato;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 8px tomato;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid lightgray;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 10px;
+  box-shadow: 0 1px 16px black;
+  border-radius: 5px;
+  padding: 20px;
+
+  & input[type="text"] {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: lightgray;
+    padding: 7px 10px;
+    margin-block: 5px;
+    border-radius: 3px;
+    font-weight: 600;
+
+    &:active,
+    &:focus {
+      outline: 1px solid tomato;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  button {
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    background-color: lightcoral;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  .field {
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1px;
+    align-items: center;
+    justify-content: center;
+
+    label {
+      font-weight: 600;
+      color: crimson;
+      font-size: 13px;
+      min-width: 24px; /* ✅ ekle */
+      text-align: left; /* ✅ ekle */
     }
   }
 }

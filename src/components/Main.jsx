@@ -2,11 +2,7 @@ import { useState } from "react";
 import "./Main.css";
 
 function Main() {
-  const [ingredients, setIngredients] = useState([
-    "Chicken",
-    "Oregano",
-    "Tomatoes",
-  ]);
+  const [ingredients, setIngredients] = useState([]);
 
   const ingredientsListItems = ingredients.map((item) => (
     <li key={item}>{item}</li>
