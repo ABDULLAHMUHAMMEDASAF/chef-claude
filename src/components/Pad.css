@@ -1,0 +1,13 @@
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 10px;
+
+  .pad {
+    outline: none;
+    appearance: none;
+    border-radius: 10px;
+  }
+}
