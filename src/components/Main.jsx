@@ -1,7 +1,10 @@
 import React from "react";
 import "./Main.css";
 import Pad from "../components/Pad.jsx";
+
+//! --------
 import padData from "../pads.js";
+import Button from "../components/Button.jsx";
 
 function Main() {
   const [pads, setPads] = React.useState(padData);
@@ -10,7 +13,16 @@ function Main() {
     <li key={index}>{item}</li>
   ));
 
-  const padList = pads.map((p) => <Pad key={p.id} color={p.color} on={p.on} />);
+  const padList = pads.map((p) => (
+    <Pad
+      key={p.id}
+      color={p.color}
+      on={p.on}
+      onClick={() => {
+        console.log(p.id);
+      }}
+    />
+  ));
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -49,6 +61,7 @@ function Main() {
         </section>
       )}
       <div className="container">{padList}</div>
+      <Button text={"Merhaba Button"} variant={"secondary"} />
     </main>
   );
 }
