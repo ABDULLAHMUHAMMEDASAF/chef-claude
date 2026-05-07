@@ -1,27 +1,13 @@
 import React from "react";
 import "./Main.css";
-import Pad from "../components/Pad.jsx";
-
-//! --------
-import padData from "../pads.js";
-import Button from "../components/Button.jsx";
 
 function Main() {
-  const [pads, setPads] = React.useState(padData);
+  //! React.useState();
+  const [inputValue, setInputValue] = React.useState("");
   const [ingredients, setIngredients] = React.useState([]);
+
   const ingredientsListItems = ingredients.map((item, index) => (
     <li key={index}>{item}</li>
-  ));
-
-  const padList = pads.map((p) => (
-    <Pad
-      key={p.id}
-      color={p.color}
-      on={p.on}
-      onClick={() => {
-        console.log(p.id);
-      }}
-    />
   ));
 
   function formHandle() {
@@ -57,8 +43,6 @@ function Main() {
           )}
         </section>
       )}
-      <div className="container">{padList}</div>
-      <Button text={"Merhaba Button"} variant={"secondary"} />
     </main>
   );
 }
