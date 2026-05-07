@@ -1,0 +1,64 @@
+.container {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  gap: 3px;
+  .dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+    animation: dots 0.9s ease-in-out infinite alternate backwards;
+  }
+
+  .dot1 {
+    animation-delay: 0s;
+  }
+  .dot2 {
+    animation-delay: 0.5s;
+  }
+  .dot3 {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes dots {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  } /* ← bu olmalı */
+}
+
+.loading {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  font-size: 50px;
+}
+
+/* 
+.loading::after {
+  content: ".";
+  animation: dots .5s linear infinite ;
+  display: inline-block;
+  width: 5.5em;
+  text-align: left;
+} */
