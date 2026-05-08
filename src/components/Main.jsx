@@ -1,18 +1,40 @@
 import React from "react";
+import Loading from "./Loading";
 import "./Main.css";
 
 function Main() {
   //! React.useState();
   const [inputValue, setInputValue] = React.useState("");
   const [ingredients, setIngredients] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [users, setUsers] = React.useState([]);
+
+  //! React.useEffect();
+  React.useEffect(() => {
+    const getUsers = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("https://api.github.com/users");
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        alert(`Bir hata meydana geldi. Hata: ${error.message}`);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getUsers();
+  }, []);
+
+  function formHandle() {
+    setIngredients((prev) => [...prev, inputValue]);
+  }
 
   const ingredientsListItems = ingredients.map((item, index) => (
     <li key={index}>{item}</li>
   ));
 
-  function formHandle() {
-    setIngredients((prev) => [...prev, inputValue]);
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <main>
@@ -43,6 +65,7 @@ function Main() {
           )}
         </section>
       )}
+      <h3>Listede toplam {users.length} tane kullanıcı bulunmaktadır.</h3>
     </main>
   );
 }
