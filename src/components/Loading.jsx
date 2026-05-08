@@ -16,7 +16,7 @@ function Loading() {
 
   return (
     <div style={style}>
-      <TailChase size="100" speed="2" color="black" />
+      <TailChase size="100" speed="1.75" color="black" />
     </div>
   );
 }
